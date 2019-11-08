@@ -89,7 +89,7 @@ void ArenaTeamMgr::LoadArenaTeams()
     //                                                        0        1         2         3          4              5            6            7           8
     QueryResult result = CharacterDatabase.Query("SELECT arenaTeamId, name, captainGuid, type, backgroundColor, emblemStyle, emblemColor, borderStyle, borderColor, "
     //      9        10        11         12           13       14
-        "rating, weekGames, weekWins, seasonGames, seasonWins, rank FROM arena_team ORDER BY arenaTeamId ASC");
+        "rating, weekGames, weekWins, seasonGames, seasonWins, arena_rank FROM arena_team ORDER BY arenaTeamId ASC");
 
     if (!result)
     {
@@ -98,13 +98,7 @@ void ArenaTeamMgr::LoadArenaTeams()
         return;
     }
 
-    QueryResult result2 = CharacterDatabase.Query(
-        //              0              1           2             3              4                 5          6     7          8                  9      10
-        "SELECT arenaTeamId, atm.guid, atm.weekGames, atm.weekWins, atm.seasonGames, atm.seasonWins, c.name, class, personalRating, matchMakerRating, maxMMR FROM arena_team_member atm"
-        " INNER JOIN arena_team ate USING (arenaTeamId)"
-        " LEFT JOIN characters AS c ON atm.guid = c.guid"
-        " LEFT JOIN character_arena_stats AS cas ON c.guid = cas.guid AND (cas.slot = 0 AND ate.type = 2 OR cas.slot = 1 AND ate.type = 3 OR cas.slot = 2 AND ate.type = 5)"
-        " ORDER BY atm.arenateamid ASC");
+    QueryResult result2 = CharacterDatabase.Query("SELECT arenaTeamId, atm.guid, atm.weekGames, atm.weekWins, atm.seasonGames, atm.seasonWins, c.name, class, personalRating, matchMakerRating, maxMMR FROM arena_team_member atm INNER JOIN arena_team ate USING (arenaTeamId) LEFT JOIN characters AS c ON atm.guid = c.guid LEFT JOIN character_arena_stats AS cas ON c.guid = cas.guid AND (cas.slot = 0 AND ate.type = 2 OR cas.slot = 1 AND ate.type = 3 OR cas.slot = 2 AND ate.type = 5) ORDER BY atm.arenateamid ASC");
 
     uint32 count = 0;
     do

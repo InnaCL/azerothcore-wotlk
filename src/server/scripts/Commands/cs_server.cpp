@@ -100,14 +100,13 @@ public:
         uint32 updateTime = sWorld->GetUpdateTime();
         uint32 avgUpdateTime = avgDiffTracker.getAverage();
 
-        handler->PSendSysMessage("%s", GitRevision::GetFullVersion());
         if (!queuedSessionCount)
-            handler->PSendSysMessage("Connected players: %u. Characters in world: %u.", activeSessionCount, playerCount);
+            handler->PSendSysMessage("Jugadores conectados: %u. Personajes en el mundo: %u.", activeSessionCount, playerCount);
         else
-            handler->PSendSysMessage("Connected players: %u. Characters in world: %u. Queue: %u.", activeSessionCount, playerCount, queuedSessionCount);
-        handler->PSendSysMessage("Connection peak: %u.", connPeak);
+            handler->PSendSysMessage("Jugadores conectados: %u. Personajes en el mundo: %u. en Cola: %u.", activeSessionCount, playerCount, queuedSessionCount);
+        handler->PSendSysMessage("Jugadores Totales: %u.", connPeak);
         handler->PSendSysMessage(LANG_UPTIME, uptime.c_str());
-        handler->PSendSysMessage("Update time diff: %ums, average: %ums.", updateTime, avgUpdateTime);
+        handler->PSendSysMessage("Tiempo de actualizacion: %ums, promedio: %ums.", updateTime, avgUpdateTime);
 
         if (handler->GetSession())
             if (Player* p = handler->GetSession()->GetPlayer())

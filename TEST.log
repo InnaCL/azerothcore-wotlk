@@ -1,0 +1,19 @@
+soap_instantiate_SOAP_ENV__Fault(0x7f4d45066d80, -1, , )
+Instantiated struct SOAP_ENV__Fault location=0x7f4d4289c000 n=-1
+/root/wow/deps/gsoap/stdsoap2.cpp(8766): malloc(32) = 0x7f4d4288f0c0
+soap_instantiate_SOAP_ENV__Detail(0x7f4d45066d80, -1, , )
+Instantiated struct SOAP_ENV__Detail location=0x7f4d4288f100 n=-1
+/root/wow/deps/gsoap/stdsoap2.cpp(8766): malloc(32) = 0x7f4d4288f120
+Done with context
+Free namespace stack
+Free any remaining temp blocks
+Free attribute storage
+Free ID hashtable
+Free pointer hashtable
+/root/wow/deps/gsoap/stdsoap2.cpp(5880): free(0x7f4d4288f120)
+/root/wow/deps/gsoap/stdsoap2.cpp(5880): free(0x7f4d4288f0c0)
+Close socket=29
+Free logfiles
+/root/wow/deps/gsoap/stdsoap2.cpp(6039): free(0x7f4d4288e000)
+/root/wow/deps/gsoap/stdsoap2.cpp(6039): free(0x7f4d4288e010)
+/root/wow/deps/gsoap/stdsoap2.cpp(6039): free(0x7f4d4288e020)

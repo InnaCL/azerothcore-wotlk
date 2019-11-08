@@ -1254,11 +1254,11 @@ void SpellMgr::LoadSpellRanks()
     uint32 oldMSTime = getMSTime();
 
     //                                                     0             1      2
-    QueryResult result = WorldDatabase.Query("SELECT first_spell_id, spell_id, rank from spell_ranks ORDER BY first_spell_id, rank");
+    QueryResult result = WorldDatabase.Query("SELECT first_spell_id, spell_id, spell_rank from spell_ranks ORDER BY first_spell_id, spell_rank");
 
     if (!result)
     {
-        sLog->outString(">> Loaded 0 spell rank records. DB table `spell_ranks` is empty.");
+        sLog->outString(">> Loaded 0 spell spell_rank records. DB table `spell_ranks` is empty.");
         sLog->outString();
         return;
     }
@@ -1268,7 +1268,7 @@ void SpellMgr::LoadSpellRanks()
 
     do
     {
-                        // spellid, rank
+                        // spellid, spell_rank
         std::list < std::pair < int32, int32 > > rankChain;
         int32 currentSpell = -1;
         int32 lastSpell = -1;
